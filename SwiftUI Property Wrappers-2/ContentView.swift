@@ -9,14 +9,22 @@
  --------------------------
  NOTES:
  //initial commit
+ 
+ //@State private var presentModal is made to be bound to var in another file
+ //@State private var number is made to be referenced & computed in same file
+
+ //.sheet() facts:
+ //if arbVar == true, below will gen a modal
+ //dismissin whats inside dismisses sheet
  --------------------------
  UPDATES & QUESTIONS:
  */
+
 import SwiftUI
 
 struct ContentView: View {
-    @State private var presentModal = false //to be bound
-    @State private var number = 0 //to change state
+    @State var presentModal = false
+    var number = 11
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -29,13 +37,12 @@ struct ContentView: View {
                 }
                 Group {
                     Button("New Number") {
-                        number = Int.random(in: 1...10)
+                        
                     }
                     Button("Show Modal") {
                         presentModal = true
                     }
-                    //if arbVar == true, below will gen a modal
-                    //dismissin whats inside dismisses sheet
+                    
                     .sheet(isPresented: $presentModal) {
                         ModalSheetView(isShowing: $presentModal)
                     }

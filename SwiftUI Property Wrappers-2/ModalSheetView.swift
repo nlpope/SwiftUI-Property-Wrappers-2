@@ -11,6 +11,9 @@
  //.sheet is getting dismissed/dragged down in the background
  //but ModalSheetView is ours so we have to manually trigger its dismissal
  //@Binding var isShowing is made to be bound to @State var presentModal
+ 
+ //b/c self.number is bound to the @State number var in ContentView,
+ the update happens as soon as "New Number" button is pressed here
  --------------------------
  UPDATES & QUESTIONS:
  */
@@ -18,7 +21,7 @@ import SwiftUI
 
 struct ModalSheetView: View {
     @Binding var isShowing: Bool
-    var number: Int = 11
+    var number = 11
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -30,7 +33,7 @@ struct ModalSheetView: View {
                         .background(Color.red)
                 }
                 Button("New Number") {
-                    
+
                 }
                 .frame(width: 150)
                 .foregroundColor(.white)

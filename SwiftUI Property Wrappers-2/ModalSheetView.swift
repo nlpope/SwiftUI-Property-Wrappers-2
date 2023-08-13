@@ -21,7 +21,7 @@ import SwiftUI
 
 struct ModalSheetView: View {
     @Binding var isShowing: Bool
-    var number = 11
+    @Binding var number: Int
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -33,7 +33,7 @@ struct ModalSheetView: View {
                         .background(Color.red)
                 }
                 Button("New Number") {
-
+                    number = Int.random(in: 1...20)
                 }
                 .frame(width: 150)
                 .foregroundColor(.white)
@@ -57,6 +57,6 @@ struct ModalSheetView: View {
 
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalSheetView(isShowing: .constant(true))
+        ModalSheetView(isShowing: .constant(true), number: .constant(0))
     }
 }

@@ -5,6 +5,13 @@
 //  Created by Stewart Lynch on 2020-07-25.
 //
 
+/**
+ --------------------------
+ NOTES:
+ //initial commit
+ --------------------------
+ UPDATES & QUESTIONS:
+ */
 import SwiftUI
 
 struct ContentView: View {

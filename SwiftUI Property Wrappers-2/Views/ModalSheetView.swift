@@ -16,7 +16,7 @@ struct ModalSheetView: View {
             VStack(spacing: 20) {
                 HStack {
                     Text("Lucky Number:")
-                    Text("\(user.luckynumber)")
+                    Text("\(user.luckyNumber)")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.red)
@@ -59,6 +59,11 @@ struct ModalSheetView_Previews: PreviewProvider {
  
  //b/c self.number is bound to the @State number var in ContentView,
  the update happens as soon as "New Number" button is pressed here
+ 
+ //@ObservedObject var user: User needs no binding '$' on the other end
  --------------------------
  UPDATES & QUESTIONS:
+ //Text("\(user.luckyNumber)")
+ why wasn't above working til I flat out replaced it w an identical?
+
  */

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var user = User(name: "Noah", luckyNumber: 0)
-    @State var presentModal = false
+    @State private var presentModal = false
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -29,7 +29,7 @@ struct ContentView: View {
                     }
                     
                     .sheet(isPresented: $presentModal) {
-                        ModalSheetView(isShowing: $presentModal, number: $user.luckyNumber)
+                        ModalSheetView(user: user, isShowing: $presentModal)
                     }
                 }
                 .frame(width: 150)

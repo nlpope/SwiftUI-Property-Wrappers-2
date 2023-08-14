@@ -5,29 +5,18 @@
 //  Created by Stewart Lynch on 2020-07-25.
 //
 
-/**
- --------------------------
- NOTES:
- //.sheet is getting dismissed/dragged down in the background
- //but ModalSheetView is ours so we have to manually trigger its dismissal
- //@Binding var isShowing is made to be bound to @State var presentModal
- 
- //b/c self.number is bound to the @State number var in ContentView,
- the update happens as soon as "New Number" button is pressed here
- --------------------------
- UPDATES & QUESTIONS:
- */
 import SwiftUI
 
 struct ModalSheetView: View {
     @ObservedObject var user: User
     @Binding var isShowing: Bool
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
                 HStack {
                     Text("Lucky Number:")
-                    Text("\($user.luckynumber)")
+                    Text("\(user.luckynumber)")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.red)
@@ -57,6 +46,19 @@ struct ModalSheetView: View {
 
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalSheetView(isShowing: .constant(true), number: .constant(0))
+        ModalSheetView(user: User(name: "LilStewart", luckyNumber: 3), isShowing: .constant(true))
     }
 }
+
+/**
+ --------------------------
+ NOTES:
+ //.sheet is getting dismissed/dragged down in the background
+ //but ModalSheetView is ours so we have to manually trigger its dismissal
+ //@Binding var isShowing is made to be bound to @State var presentModal
+ 
+ //b/c self.number is bound to the @State number var in ContentView,
+ the update happens as soon as "New Number" button is pressed here
+ --------------------------
+ UPDATES & QUESTIONS:
+ */

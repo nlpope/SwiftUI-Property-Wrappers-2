@@ -5,21 +5,6 @@
 //  Created by Stewart Lynch on 2020-07-25.
 //
 
-/**
- --------------------------
- NOTES:
- //initial commit
- 
- //@State private var presentModal is made to be bound to var in another file
- //@State private var number is made to be referenced & computed in same file
-
- //.sheet() facts:
- //if arbVar == true, below will gen a modal
- //dismissin whats inside dismisses sheet
- --------------------------
- UPDATES & QUESTIONS:
- */
-
 import SwiftUI
 
 struct ContentView: View {
@@ -68,3 +53,18 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+/**
+ --------------------------
+ NOTES:
+ //initial commit
+ 
+ //@State private var presentModal is made to be bound to var in another file
+ //@State private var number is made to be referenced & computed in same file
+
+ //.sheet() facts:
+ //if arbVar == true, below will gen a modal
+ //dismissin whats inside dismisses sheet
+ --------------------------
+ UPDATES & QUESTIONS:
+ */

@@ -23,28 +23,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var user = User(name: "Noah", luckyNumber: 0)
     @State var presentModal = false
-    @State var number = 0
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
                 HStack {
                     Text("Lucky Number:")
-                    Text("\(number)")
+                    Text("\(user.luckyNumber)")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.green)
                 }
                 Group {
                     Button("New Number") {
-                        number = Int.random(in: 1...10)
+                        user.luckyNumber = Int.random(in: 1...10)
                     }
                     Button("Show Modal") {
                         presentModal = true
                     }
                     
                     .sheet(isPresented: $presentModal) {
-                        ModalSheetView(isShowing: $presentModal, number: $number)
+                        ModalSheetView(isShowing: $presentModal, number: $user.luckyNumber)
                     }
                 }
                 .frame(width: 150)
@@ -53,7 +53,7 @@ struct ContentView: View {
                 .background(Color.blue)
                 .cornerRadius(7)
             }
-            .navigationTitle("Property Wrappers 2")
+            .navigationTitle("\(user.name)")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Text("Go Next")

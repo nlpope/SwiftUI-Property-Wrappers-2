@@ -20,20 +20,20 @@
 import SwiftUI
 
 struct ModalSheetView: View {
+    @ObservedObject var user: User
     @Binding var isShowing: Bool
-    @Binding var number: Int
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
                 HStack {
                     Text("Lucky Number:")
-                    Text("\(number)")
+                    Text("\($user.luckynumber)")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.red)
                 }
                 Button("New Number") {
-                    number = Int.random(in: 1...20)
+                    user.luckyNumber = Int.random(in: 1...20)
                 }
                 .frame(width: 150)
                 .foregroundColor(.white)
@@ -41,7 +41,7 @@ struct ModalSheetView: View {
                 .background(Color.purple)
                 .cornerRadius(7)
             }
-            .navigationTitle("Modal Sheet View")
+            .navigationTitle("\(user.name)")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {

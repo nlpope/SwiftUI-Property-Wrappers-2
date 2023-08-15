@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var user = User(name: "Noah", luckyNumber: 0)
     @State private var presentModal = false
+    @State private var showNameEditor = false
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -24,6 +25,34 @@ struct ContentView: View {
                     Button("New Number") {
                         user.luckyNumber = Int.random(in: 1...10)
                     }
+                    Button("New Name") {
+                        self.showNameEditor = true
+                    }
+                    
+                    
+                    
+                    
+                    
+                    .alert(isPresented: $showNameEditor) {
+                        var textField = UITextField()
+                        let alert = UIAlertController(title: "Change user name", message: "", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "Change Name Now!", style: .default) { _ in
+                            
+                            self.user.name = textField.text ?? self.user.name
+                        }
+                        
+                        alert.addTextField { alertTextField in
+                            alertTextField.placeholder = "Change your username"
+                            textField = alertTextField //now they're linked?
+                        }
+                        alert.addAction(action)
+                        
+                        //return 'some View'
+                        
+                    }
+                    
+                    
+                    
                     Button("Show Modal") {
                         presentModal = true
                     }

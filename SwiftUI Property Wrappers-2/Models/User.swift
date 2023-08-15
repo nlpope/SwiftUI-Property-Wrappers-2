@@ -13,6 +13,6 @@ class User: ObservableObject {
         self.luckyNumber = luckyNumber
     }
     
-    var name: String
+    @Published var name: String
     @Published var luckyNumber: Int
 }

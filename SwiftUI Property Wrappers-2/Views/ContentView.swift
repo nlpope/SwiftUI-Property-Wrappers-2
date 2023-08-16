@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var user = User(name: "Noah", luckyNumber: 0)
     @State private var presentModal = false
-    @State private var showNameEditor = false
+//    @State private var showNameEditor = false
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -26,14 +26,9 @@ struct ContentView: View {
                         user.luckyNumber = Int.random(in: 1...10)
                     }
                     Button("New Name") {
-                        self.showNameEditor = true
-                    }
-                    
-                    
-                    
-                    
-                    
-                    .alert(isPresented: $showNameEditor) {
+                        //PULL UP A NEW MODAL TO CHANGE NAME?
+                        
+//                        self.showNameEditor = true
                         var textField = UITextField()
                         let alert = UIAlertController(title: "Change user name", message: "", preferredStyle: .alert)
                         let action = UIAlertAction(title: "Change Name Now!", style: .default) { _ in
@@ -46,12 +41,8 @@ struct ContentView: View {
                             textField = alertTextField //now they're linked?
                         }
                         alert.addAction(action)
-                        
-                        //return 'some View'
-                        
+                        self.present(alert, animated: true, completion: nil)
                     }
-                    
-                    
                     
                     Button("Show Modal") {
                         presentModal = true
@@ -94,6 +85,8 @@ struct ContentView_Previews: PreviewProvider {
  //.sheet() facts:
  //if arbVar == true, below will gen a modal
  //dismissin whats inside dismisses sheet
+ 
+ //alerts can't hold textfields in swiftUI
  --------------------------
  UPDATES & QUESTIONS:
  */

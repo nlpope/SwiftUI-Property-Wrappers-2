@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var user = User(name: "Noah", luckyNumber: 0)
     @State private var presentModal = false
-//    @State private var showNameEditor = false
+    @FocusState private var nameFieldIsFocused: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -25,24 +26,6 @@ struct ContentView: View {
                     Button("New Number") {
                         user.luckyNumber = Int.random(in: 1...10)
                     }
-                    Button("New Name") {
-                        //PULL UP A NEW MODAL TO CHANGE NAME?
-                        
-//                        self.showNameEditor = true
-                        var textField = UITextField()
-                        let alert = UIAlertController(title: "Change user name", message: "", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "Change Name Now!", style: .default) { _ in
-                            
-                            self.user.name = textField.text ?? self.user.name
-                        }
-                        
-                        alert.addTextField { alertTextField in
-                            alertTextField.placeholder = "Change your username"
-                            textField = alertTextField //now they're linked?
-                        }
-                        alert.addAction(action)
-                        self.present(alert, animated: true, completion: nil)
-                    }
                     
                     Button("Show Modal") {
                         presentModal = true
@@ -51,6 +34,12 @@ struct ContentView: View {
                     .sheet(isPresented: $presentModal) {
                         ModalSheetView(user: self.user, isShowing: $presentModal)
                     }
+                    TextField(
+                        "Edit Your User Name",
+                        text: $user.name
+                    )
+                    .autocorrectionDisabled(true)
+                    .focused($nameFieldIsFocused)
                 }
                 .frame(width: 150)
                 .foregroundColor(.white)
@@ -89,6 +78,13 @@ struct ContentView_Previews: PreviewProvider {
  //alerts can't hold textfields in swiftUI
  
  //reading docs on swiftUI textfields
+ //turns out the 14 lines of code used to generate the textfield alert in the MiniCoreDataChallenge in the default Swift can be replaced w 1 or 4 lines of code in SwiftUI
+ > TextField(
+  "Edit Your User Name",
+  text: $user.name
+  )
+ //so now the name is updating fine, but I wanna do more w the focus and backgrd color
+ //playing w focus options and binding said focus to @FocusState property up top
  --------------------------
  UPDATES & QUESTIONS:
  */

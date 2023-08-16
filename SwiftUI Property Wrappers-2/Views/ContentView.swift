@@ -87,6 +87,8 @@ struct ContentView_Previews: PreviewProvider {
  //dismissin whats inside dismisses sheet
  
  //alerts can't hold textfields in swiftUI
+ 
+ //reading docs on swiftUI textfields
  --------------------------
  UPDATES & QUESTIONS:
  */

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4079C7502A8A48D200610894 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079C74F2A8A48D200610894 /* User.swift */; };
-		4079C7532A8C5B9C00610894 /* ModalSheetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4079C7522A8C5B9C00610894 /* ModalSheetView2.swift */; };
 		BB833AAB24CC8D7300B85CD6 /* SwiftUI_Property_Wrappers_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB833AAA24CC8D7300B85CD6 /* SwiftUI_Property_Wrappers_2App.swift */; };
 		BB833AAD24CC8D7300B85CD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB833AAC24CC8D7300B85CD6 /* ContentView.swift */; };
 		BB833AAF24CC8D7400B85CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB833AAE24CC8D7400B85CD6 /* Assets.xcassets */; };
@@ -19,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		4079C74F2A8A48D200610894 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		4079C7522A8C5B9C00610894 /* ModalSheetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetView2.swift; sourceTree = "<group>"; };
 		BB833AA724CC8D7300B85CD6 /* SwiftUI Property Wrappers-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI Property Wrappers-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB833AAA24CC8D7300B85CD6 /* SwiftUI_Property_Wrappers_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Property_Wrappers_2App.swift; sourceTree = "<group>"; };
 		BB833AAC24CC8D7300B85CD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,7 +52,6 @@
 			children = (
 				BB833AAC24CC8D7300B85CD6 /* ContentView.swift */,
 				BB833AB924CC8FA600B85CD6 /* ModalSheetView.swift */,
-				4079C7522A8C5B9C00610894 /* ModalSheetView2.swift */,
 				BB833ABB24CC919100B85CD6 /* NavDestinationView.swift */,
 			);
 			path = Views;
@@ -169,7 +166,6 @@
 				BB833ABA24CC8FA600B85CD6 /* ModalSheetView.swift in Sources */,
 				BB833ABC24CC919100B85CD6 /* NavDestinationView.swift in Sources */,
 				BB833AAD24CC8D7300B85CD6 /* ContentView.swift in Sources */,
-				4079C7532A8C5B9C00610894 /* ModalSheetView2.swift in Sources */,
 				4079C7502A8A48D200610894 /* User.swift in Sources */,
 				BB833AAB24CC8D7300B85CD6 /* SwiftUI_Property_Wrappers_2App.swift in Sources */,
 			);

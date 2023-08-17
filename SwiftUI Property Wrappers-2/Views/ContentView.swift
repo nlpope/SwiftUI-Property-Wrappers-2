@@ -41,6 +41,8 @@ struct ContentView: View {
                 .padding(5)
                 .background(.blue)
                 .cornerRadius(7)
+                
+                // MARK: - EDIT NAME FIELDS
                 Group {
                     HStack {
                         Text("Edit Name:")

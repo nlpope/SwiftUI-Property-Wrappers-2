@@ -7,10 +7,11 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct ContentView: View {
     @StateObject var user = User(name: "Noah", luckyNumber: 0)
     @State private var presentModal = false
-    @FocusState private var nameFieldIsFocused: Bool = false
+    @FocusState private var nameFieldIsFocused: Bool
     
     var body: some View {
         NavigationView {
@@ -34,20 +35,35 @@ struct ContentView: View {
                     .sheet(isPresented: $presentModal) {
                         ModalSheetView(user: self.user, isShowing: $presentModal)
                     }
-                    TextField(
-                        "Edit Your User Name",
-                        text: $user.name
-                    )
-                    .autocorrectionDisabled(true)
-                    .focused($nameFieldIsFocused)
                 }
                 .frame(width: 150)
                 .foregroundColor(.white)
                 .padding(5)
-                .background(Color.blue)
+                .background(.blue)
                 .cornerRadius(7)
+                Group {
+                    HStack {
+                        Text("Edit Name:")
+                        TextField(
+                            "Edit Your User Name",
+                            text: $user.name
+                        )
+                        .autocorrectionDisabled(true)
+                        .padding(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 7)
+                                .stroke(.black, lineWidth: 2)
+                        )
+                        .focused($nameFieldIsFocused)
+                        
+                    }
+                }
+                .frame(width: 200)
+                .padding(5)
+                
+                
             }
-            .navigationTitle("\(user.name)")
+            .navigationTitle("\(user.name == "" ? "write your name, child" : user.name)")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Text("Go Next")
@@ -59,7 +75,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        if #available(iOS 15.0, *) {
+            ContentView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 

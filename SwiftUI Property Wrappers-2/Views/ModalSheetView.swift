@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct ModalSheetView: View {
     @ObservedObject var user: User
     @Binding var isShowing: Bool
+    @FocusState private var nameFieldIsFocused: Bool
+
     
     var body: some View {
         NavigationView {
@@ -29,6 +32,27 @@ struct ModalSheetView: View {
                 .padding(5)
                 .background(Color.purple)
                 .cornerRadius(7)
+                
+                // MARK: - EDIT NAME FIELDS
+                Group {
+                    HStack {
+                        Text("Edit Name:")
+                        TextField(
+                            "Edit Your User Name",
+                            text: $user.name
+                        )
+                        .autocorrectionDisabled(true)
+                        .padding(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 7)
+                                .stroke(.black, lineWidth: 2)
+                        )
+                        .focused($nameFieldIsFocused)
+                        
+                    }
+                }
+                .frame(width: 200)
+                .padding(5)
             }
             .navigationTitle("\(user.name)")
             .navigationBarTitleDisplayMode(.inline)
@@ -46,7 +70,11 @@ struct ModalSheetView: View {
 
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalSheetView(user: User(name: "LilStewart", luckyNumber: 3), isShowing: .constant(true))
+        if #available(iOS 15.0, *) {
+            ModalSheetView(user: User(name: "LilStewart", luckyNumber: 3), isShowing: .constant(true))
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 

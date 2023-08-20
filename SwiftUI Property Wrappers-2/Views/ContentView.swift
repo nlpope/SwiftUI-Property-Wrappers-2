@@ -31,7 +31,6 @@ struct ContentView: View {
                     Button("Show Modal") {
                         presentModal = true
                     }
-                    
                     .sheet(isPresented: $presentModal) {
                         ModalSheetView(user: self.user, isShowing: $presentModal)
                     }

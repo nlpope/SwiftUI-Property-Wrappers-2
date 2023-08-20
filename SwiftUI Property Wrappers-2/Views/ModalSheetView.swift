@@ -33,26 +33,7 @@ struct ModalSheetView: View {
                 .background(Color.purple)
                 .cornerRadius(7)
                 
-                // MARK: - EDIT NAME FIELDS
-                Group {
-                    HStack {
-                        Text("Edit Name:")
-                        TextField(
-                            "Edit Your User Name",
-                            text: $user.name
-                        )
-                        .autocorrectionDisabled(true)
-                        .padding(5)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 7)
-                                .stroke(.black, lineWidth: 2)
-                        )
-                        .focused($nameFieldIsFocused)
-                        
-                    }
-                }
-                .frame(width: 200)
-                .padding(5)
+              
             }
             .navigationTitle("\(user.name)")
             .navigationBarTitleDisplayMode(.inline)

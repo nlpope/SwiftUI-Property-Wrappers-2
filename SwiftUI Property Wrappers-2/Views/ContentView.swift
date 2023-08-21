@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ContentView: View {
-    @StateObject var user = User(name: "Noah", luckyNumber: 0)
+    @EnvironmentObject var user: User //@EnvironmentObj. = "I can read the 'user' var passed in my parent" - name match arb.
     @State private var presentModal = false
     @FocusState private var nameFieldIsFocused: Bool
     
@@ -32,7 +32,7 @@ struct ContentView: View {
                         presentModal = true
                     }
                     .sheet(isPresented: $presentModal) {
-                        ModalSheetView(user: self.user, isShowing: $presentModal)
+                        ModalSheetView(isShowing: $presentModal)
                     }
                 }
                 .frame(width: 150)
@@ -77,7 +77,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
-            ContentView()
+            ContentView().environmentObject(User(name: "Ben", luckyNumber: 10))
         } else {
             // Fallback on earlier versions
         }

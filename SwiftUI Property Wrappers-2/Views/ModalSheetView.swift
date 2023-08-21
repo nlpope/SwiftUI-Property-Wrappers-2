@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ModalSheetView: View {
-    @ObservedObject var user: User
+    @EnvironmentObject var user: User
     @Binding var isShowing: Bool
     @FocusState private var nameFieldIsFocused: Bool
 
@@ -52,7 +52,7 @@ struct ModalSheetView: View {
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
-            ModalSheetView(user: User(name: "LilStewart", luckyNumber: 3), isShowing: .constant(true))
+            ModalSheetView(isShowing: .constant(true)).environmentObject(User(name: "Neo", luckyNumber: 1))
         } else {
             // Fallback on earlier versions
         }

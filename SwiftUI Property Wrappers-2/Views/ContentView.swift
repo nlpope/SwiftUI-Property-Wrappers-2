@@ -9,7 +9,8 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ContentView: View {
-    @EnvironmentObject var user: User //@EnvironmentObj. = "I can read the 'user' var passed in my parent" - name match arb.
+//    @EnvironmentObject var user: User //@EnvironmentObj. = "I can read the 'user' var passed in my parent" - name match arb.
+    @StateObject private var user = User(name: "Ben", luckyNumber: 10)
     @State private var presentModal = false
     @FocusState private var nameFieldIsFocused: Bool
     
@@ -32,7 +33,7 @@ struct ContentView: View {
                         presentModal = true
                     }
                     .sheet(isPresented: $presentModal) {
-                        ModalSheetView(isShowing: $presentModal).environmentObject(user)
+                        ModalSheetView(user: user, isShowing: $presentModal).environmentObject(user)
                     }
                 }
                 .frame(width: 150)
@@ -67,7 +68,10 @@ struct ContentView: View {
             .navigationTitle("\(user.name == "" ? "write your name, child" : user.name)")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Text("Go Next")
+//                    Text("Go Next")
+                    Button("Go Next") {
+                        
+                    }
                 }
             }
         }
@@ -77,7 +81,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
-            ContentView().environmentObject(User(name: "Ben", luckyNumber: 10))
+            //remember Ben 10 for envrio re-wire
+            ContentView()
         } else {
             // Fallback on earlier versions
         }

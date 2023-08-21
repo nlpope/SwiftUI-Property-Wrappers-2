@@ -13,6 +13,7 @@ class User: ObservableObject {
         self.luckyNumber = luckyNumber
     }
     
+    //these must be published to use environment
     @Published var name: String
     @Published var luckyNumber: Int
 }

@@ -45,3 +45,11 @@ struct NavDestinationView_Previews: PreviewProvider {
         NavDestinationView().environmentObject(User(name: "lilStewart", luckyNumber: 11))
     }
 }
+
+/**
+ --------------------------
+ NOTES:
+ //does this need to be supplied the environ obj w .envirionment(user) if it's being pushed(?) on the stack via that nav button up top - it's not being presented is it? Is that why we don't need an 'isShowing' var up top?
+ --------------------------
+ UPDATES & QUESTIONS:
+ */

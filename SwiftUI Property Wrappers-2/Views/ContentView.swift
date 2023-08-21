@@ -32,7 +32,7 @@ struct ContentView: View {
                         presentModal = true
                     }
                     .sheet(isPresented: $presentModal) {
-                        ModalSheetView(isShowing: $presentModal)
+                        ModalSheetView(isShowing: $presentModal).environmentObject(user)
                     }
                 }
                 .frame(width: 150)

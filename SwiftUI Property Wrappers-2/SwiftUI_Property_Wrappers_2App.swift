@@ -9,10 +9,11 @@ import SwiftUI
 
 @main 
 struct SwiftUI_Property_Wrappers_2App: App {
+    var loser = User(name: "Azmuth", luckyNumber: 10000)
     var body: some Scene {
         WindowGroup {
             if #available(iOS 15.0, *) {
-                ContentView() //supplies an observable object (user) to a view subheirarchy
+                ContentView().environmentObject(loser) //supplies an observable object (user) to a view subheirarchy
             } else {
                 // Fallback on earlier versions
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ModalSheetView: View {
-    @ObservedObject var user: User
+    @EnvironmentObject var user: User
     @Binding var isShowing: Bool
     @FocusState private var nameFieldIsFocused: Bool
 
@@ -25,7 +25,7 @@ struct ModalSheetView: View {
                         .background(Color.red)
                 }
                 Button("New Number") {
-                    user.luckyNumber = Int.random(in: 1...20)
+                    user.luckyNumber = Int.random(in: 11...20)
                 }
                 .frame(width: 150)
                 .foregroundColor(.white)
@@ -52,7 +52,8 @@ struct ModalSheetView: View {
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
-            ModalSheetView(user: User(name: "Modok", luckyNumber: 200), isShowing: .constant(true))
+            ModalSheetView(isShowing: .constant(true)).environmentObject(User(name: "Modok", luckyNumber: 210))
+//            ModalSheetView(user: User(name: "Modok", luckyNumber: 200), isShowing: .constant(true))
         } else {
             // Fallback on earlier versions
         }

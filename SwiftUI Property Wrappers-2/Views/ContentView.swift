@@ -9,8 +9,9 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ContentView: View {
-//    @EnvironmentObject var user: User //@EnvironmentObj. = "I can read the 'user' var passed in my parent" - name match arb.
-    @StateObject private var user = User(name: "Ben", luckyNumber: 10)
+//@EnvironmentObject var user: User
+//@EnvironmentObj. = "I can read the 'user' var passed in my parent" - name match arb.
+    @EnvironmentObject private var user: User
     @State private var presentModal = false
     @FocusState private var nameFieldIsFocused: Bool
     
@@ -33,7 +34,8 @@ struct ContentView: View {
                         presentModal = true
                     }
                     .sheet(isPresented: $presentModal) {
-                        ModalSheetView(user: user, isShowing: $presentModal).environmentObject(user)
+                        ModalSheetView(isShowing: $presentModal)
+                        
                     }
                 }
                 .frame(width: 150)
@@ -82,7 +84,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
             //remember Ben 10 for envrio re-wire
-            ContentView()
+            ContentView().environmentObject(User(name: "Content Creator", luckyNumber: 100))
         } else {
             // Fallback on earlier versions
         }
@@ -111,6 +113,10 @@ struct ContentView_Previews: PreviewProvider {
   )
  //so now the name is updating fine, but I wanna do more w the focus and backgrd color
  //playing w focus options and binding said focus to @FocusState property up top
+ 
+ //not sure if .environment(user) is necessary in latest version of Swift for                         ModalSheetView(isShowing: $presentModal)
+ //in fact, it seems to get user passed automatically even though it's presenated (not in OG view hierarchy)
+ //user passed w/out need for injection" and NOW even need for the .environmentObject(user) tag - WALLA - Thanks stack overflow
  --------------------------
  UPDATES & QUESTIONS:
  */

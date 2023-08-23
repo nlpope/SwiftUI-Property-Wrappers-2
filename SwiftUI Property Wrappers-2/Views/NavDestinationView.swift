@@ -13,7 +13,7 @@ struct NavDestinationView: View {
             VStack(spacing: 20) {
                 HStack {
                     Text("Lucky Number")
-                    Text("??")
+                    Text("\(user.luckyNumber)")
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.blue)
@@ -50,6 +50,14 @@ struct NavDestinationView_Previews: PreviewProvider {
  --------------------------
  NOTES:
  //does this need to be supplied the environ obj w .envirionment(user) if it's being pushed(?) on the stack via that nav button up top - it's not being presented is it? Is that why we don't need an 'isShowing' var up top?
+ 
+ //and since it's pushed onto the navigation stack by that navigation link (not apart of OG hierarchy) we have to add tag / pass the enviro variable using .environmentObject(user) in the parent view just above it - i also think the updated version of swift nixed having to add that tag in most places, so is this part necessary outside of previews? - works fine w/out it
+ 
+ //if you wanna see a navigation bar in the preview, just wrap NavDestinationView
+ above in a NavigationView
  --------------------------
  UPDATES & QUESTIONS:
+ 
+ //and since it's pushed onto the navigation stack by that navigation link (not apart of OG hierarchy) ... i also think the updated version of swift nixed having to add that tag in most places, so is this part necessary outside of previews? - works fine w/out it
+
  */

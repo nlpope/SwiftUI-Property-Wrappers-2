@@ -52,7 +52,7 @@ struct ModalSheetView: View {
 struct ModalSheetView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
-            ModalSheetView(isShowing: .constant(true)).environmentObject(User(name: "Modok", luckyNumber: 210))
+            ModalSheetView(isShowing: .constant(true)).environmentObject(User(name: "Modok", luckyNumber: 616))
 //            ModalSheetView(user: User(name: "Modok", luckyNumber: 200), isShowing: .constant(true))
         } else {
             // Fallback on earlier versions

@@ -9,7 +9,8 @@ import SwiftUI
 
 @main 
 struct SwiftUI_Property_Wrappers_2App: App {
-    var loser = User(name: "Azmuth", luckyNumber: 10000)
+    //where type User gets instantiated for whole app - starts as muggle 
+    private var loser = User(name: "Azmuth", luckyNumber: 10000)
     var body: some Scene {
         WindowGroup {
             if #available(iOS 15.0, *) {

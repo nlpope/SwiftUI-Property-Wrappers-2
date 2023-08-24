@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     //@EnvironmentObject var user: User
     //@EnvironmentObj. = "I can read the 'user' var passed in my parent" - name match arb.
-    @EnvironmentObject private var user: User
+    @EnvironmentObject var user: User
     @State private var presentModal = false
     @FocusState private var nameFieldIsFocused: Bool
     
@@ -76,13 +76,18 @@ struct ContentView: View {
             }
         }
     }
+    
+    func didDismiss() -> Void {
+        presentModal = false
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 15.0, *) {
             //remember Ben 10 for envrio re-wire
-            ContentView().environmentObject(User(name: "Content Creator", luckyNumber: 100))
+            ContentView()
+                .environmentObject(User(name: "Comic Content", luckyNumber: 100))
         } else {
             // Fallback on earlier versions
         }

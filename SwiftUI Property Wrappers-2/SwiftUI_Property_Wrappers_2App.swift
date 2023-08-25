@@ -29,6 +29,7 @@ struct SwiftUI_Property_Wrappers_2App: App {
  //so basically we're creating the variable here as a normal var
  //...then setting it up as a global environment var available to all views under any view with the tag .environmentObject(ObservableObject)
 
+ //8.25 reading up on initializers and defaults before continuing
  --------------------------
  UPDATES & QUESTIONS:
  */

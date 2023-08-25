@@ -16,7 +16,7 @@ class User: ObservableObject {
     
     //these must be published to use environment
     @Published var name: String
-    @Published var luckyNumber: Int  {
+    @Published var luckyNumber: Int = 10 {
         didSet {
             lastLuckyNumber = oldValue
         }
@@ -48,4 +48,7 @@ class User: ObservableObject {
  //now it's in app storage to be used on reboot
  --------------------------
  UPDATES & QUESTIONS:
+ //why do we get error up top when trying to set self.luckyNumber = lastLuckyNumber?
+ //b/c this stored property (luckyNumber), below needs to have an initial value before you can
+ //... plug / assign other values to it in the init( )
  */

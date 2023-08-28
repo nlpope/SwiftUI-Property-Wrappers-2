@@ -51,4 +51,6 @@ class User: ObservableObject {
  //why do we get error up top when trying to set self.luckyNumber = lastLuckyNumber?
  //b/c this stored property (luckyNumber), below needs to have an initial value before you can
  //... plug / assign other values to it in the init( )
+ 
+ //giving luckyNumber prop in User model back its default value to be altered in the init() - using its "oldValue" in the didSet on the first click
  */

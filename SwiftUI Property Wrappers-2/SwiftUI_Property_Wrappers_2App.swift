@@ -30,6 +30,8 @@ struct SwiftUI_Property_Wrappers_2App: App {
  //...then setting it up as a global environment var available to all views under any view with the tag .environmentObject(ObservableObject)
 
  //8.25 reading up on initializers and defaults before continuing
+ 
+ //8.28 reading up on initializers
  --------------------------
  UPDATES & QUESTIONS:
  */

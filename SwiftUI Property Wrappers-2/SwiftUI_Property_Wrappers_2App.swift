@@ -31,7 +31,7 @@ struct SwiftUI_Property_Wrappers_2App: App {
 
  //8.25 reading up on initializers and defaults before continuing
  
- //8.28 reading up on initializers
+ //8.29 reading up on initializers
  --------------------------
  UPDATES & QUESTIONS:
  */

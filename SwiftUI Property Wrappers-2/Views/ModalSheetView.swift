@@ -11,7 +11,6 @@ import SwiftUI
 struct ModalSheetView: View {
     @EnvironmentObject var user: User
     @Binding var isShowing: Bool
-    @FocusState private var nameFieldIsFocused: Bool
 
     
     var body: some View {

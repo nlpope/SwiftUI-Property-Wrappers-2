@@ -31,7 +31,8 @@ struct SwiftUI_Property_Wrappers_2App: App {
 
  //8.25 reading up on initializers and defaults before continuing
  
- //8.30 reading up on initializers 
+ //8.25 - 8.30 reading up on initializers
+ //8.31 finished w property wrappers and initializers
  --------------------------
  UPDATES & QUESTIONS:
  */

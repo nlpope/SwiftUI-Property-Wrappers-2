@@ -75,4 +75,5 @@ struct ModalSheetView_Previews: PreviewProvider {
  //Text("\(user.luckyNumber)")
  why wasn't above working til I flat out replaced it w an identical?
 
+ //correction - removing focus state from modalSheetView - unnecessary
  */
